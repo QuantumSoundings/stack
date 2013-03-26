@@ -3,11 +3,11 @@
 #include "stack.c"
 using namespace std;
 stack<char> ops;
-stack<int> stk;
-int calc(char c){
-	int sec=stk.pop();
-	int fir=stk.pop();
-	int i=0;
+stack<double> stk;
+double calc(char c){
+	double sec=stk.pop();
+	double fir=stk.pop();
+	double i=0;
 	switch(c){
 		case'^':i=pow(fir,sec);break;
 		case'*':i=fir*sec;break;
@@ -29,9 +29,9 @@ bool ishigher(char c){
 		return true;
 	return false;
 }
-int infix(string s){
+double infix(string s){
 	bool isnum=false;bool cal=false; bool islast=false;bool neg=false; bool isop=false;
-	int num=0;
+	double num=0;
 	s+=" ";
 	for(int k=0; k<s.length();k++){
 		char c=s[k];
